@@ -9,3 +9,16 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
+
+nav {
+  margin-bottom: 30px;
+}
+nav a {
+  color: #ff66cc;
+  margin: 0 10px;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
