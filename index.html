@@ -1,47 +1,506 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Skins - osu!</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySkins - Mundo Fofo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
+            color: #7c5c6b;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #ff9bb4 0%, #ffcdd2 100%);
+            padding: 25px 0;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 20px rgba(233, 30, 99, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #e91e63;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #7c5c6b;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: #e91e63;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffcdd2;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 15px 0;
+            color: #e91e63;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ff80ab;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-icons {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: #e91e63;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #ff4081;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background-color: #ffebee;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        h2 {
+            color: #e91e63;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 250px;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #e91e63 0%, #ff4081 100%);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #ff9bb4 0%, #ffcdd2 100%);
+            text-align: center;
+            padding: 40px 0;
+            color: #7c5c6b;
+            border-radius: 30px 30px 0 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: #7c5c6b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #e91e63;
+        }
+        
+        /* Decorative Elements */
+        .decorative {
+            font-size: 2.2rem;
+            margin: 20px 0;
+            color: #ffcdd2;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .heart {
+            color: #ff4081;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .bubble {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffebee;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            text-align: center;
+            margin: 0 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .section {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Bem-vindo ao meu site!</h1>
-    <p>Aqui você encontra informações sobre mim e minhas skins de osu!</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>Sobre mim</h2>
-      <p>Sou [seu nome/apelido], gosto de osu! e aqui compartilho minhas skins favoritas.</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://placekitten.com/100/100" alt="Logo" class="logo-img">
+                    <div class="logo-text">MySkins</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Galeria</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <img src="https://placekitten.com/300/300" alt="Avatar fofo" class="profile-img">
+            <h1>MySkins <span class="heart">♥</span></h1>
+            <p class="subtitle">Bem-vindo ao meu mundo fofo de skins e designs adoráveis!</p>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+            
+            <div class="decorative">
+                <span class="bubble">☆</span>
+                <span class="bubble">★</span>
+                <span class="bubble">☆</span>
+            </div>
+        </div>
     </section>
-
-    <section>
-      <h2>Minhas Skins</h2>
-      <ul>
-        <li>
-          <a href="skins/skin1.osk" download>Skin 1</a>
-          <img src="skins/skin1.png" alt="Preview da Skin 1">
-        </li>
-        <li>
-          <a href="skins/skin2.osk" download>Skin 2</a>
-          <img src="skins/skin2.png" alt="Preview da Skin 2">
-        </li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>Feito com ❤️ por mim</p>
-  </footer>
+    
+    <main>
+        <div class="container">
+            <section class="section">
+                <h2>Sobre Mim</h2>
+                <p class="about-text">
+                    Olá! Eu sou MySkins, uma criadora de conteúdos fofos e adoráveis. 
+                    Amo criar skins, designs personalizados e tudo que traz alegria e calor ao coração. 
+                    Este é o meu cantinho na internet onde compartilho um pouco do que amo criar!
+                </p>
+                <div class="center">
+                    <a href="#" class="btn">Saiba Mais</a>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Minha Galeria</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://placekitten.com/400/400" alt="Design 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placekitten.com/400/401" alt="Design 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placekitten.com/400/402" alt="Design 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placekitten.com/400/403" alt="Design 4">
+                    </div>
+                </div>
+                
+                <div class="center">
+                    <a href="#" class="btn">Ver Mais</a>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Meus Links</h2>
+                <div class="center">
+                    <p>Confira meus conteúdos em outras plataformas:</p>
+                    
+                    <div style="margin: 30px 0;">
+                        <a href="#" class="btn" style="margin: 10px;"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="btn" style="margin: 10px;"><i class="fab fa-tiktok"></i> TikTok</a>
+                        <a href="#" class="btn" style="margin: 10px;"><i class="fab fa-youtube"></i> YouTube</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="decorative">
+                    <span>✧</span>
+                    <span class="heart">♥</span>
+                    <span>✧</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Sobre</a>
+                    <a href="#">Contato</a>
+                    <a href="#">Privacidade</a>
+                </div>
+                
+                <p>Feito com <span class="heart">♥</span> por MySkins</p>
+                <p>© 2023 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
-
-
-<nav>
-  <a href="#sobre">Sobre</a> |
-  <a href="#skins">Skins</a> |
-  <a href="#contato">Contato</a>
-</nav>
